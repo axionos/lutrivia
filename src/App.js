@@ -1,11 +1,14 @@
 import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
+import data from './data.js';
+import GameInfo from './GameInfo.js';
+import QuestionsContainer from './QuestionsContainer.js';
 
 function App() {
+  console.log(data)
   return (
     <div className="App">
-      Hello
+      <GameInfo name={data.gameInfo.name} score={data.gameInfo.score}/>
+      <QuestionsContainer questions_list={data.questions}/>
     </div>
   );
 }
