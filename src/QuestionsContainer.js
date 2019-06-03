@@ -3,8 +3,9 @@ import Question from './Question.js';
 
 class QuestionsContainer extends React.Component {
   render() {
-
-    const questionsLis = this.props.questions_list.map(function(question) {
+    const shuffled = this.props.questions_list.sort(() => 0.5 - Math.random())
+    let selected = shuffled.slice(0, 5)
+    const questionsLis = selected.map(function(question) {
       return <Question
         key={question.id}
         text={question.text}

@@ -6,11 +6,9 @@ class Question extends React.Component {
     // console.log(this.props)
     return (
       <div className="question">
-        <div>
-          <p>{this.props.text}</p>
-          <button>True</button>
-          <button>False</button>
-        </div>
+        <p>{this.props.text}</p>
+        <button>True</button>
+        <button>False</button>        
       </div>
     )
   }
