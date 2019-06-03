@@ -9,19 +9,19 @@ export default {
       id: 1,
       text: "An otter's den is called a sofa.",
       answer: false,
-      selected: true
+      selected: null
     },
     {
       id: 2,
       text: "The word otter is related to the English word water.",
       answer: true,
-      selected: true
+      selected: null
     },
     {
       id: 3,
       text: "Otter pups stay with their families for up to one year.",
       answer: true,
-      selected: true
+      selected: false
     },
     {
       id: 4,
