@@ -2,42 +2,62 @@ import React from 'react';
 
 
 class Question extends React.Component {
+  // when it's cliekced, if it matches with the answer
+  // button turns green, otherwise, red
+  handleClickTrue = event => {
+    // debugger
+    let findQuestion = this.props.questionsList.find(theQuestion => theQuestion.text === event.target.id)
 
-  // answerTrue = (event) => {
-  //   this.setState({
-  //     isSelected: true
-  //   })
-  // }
-  // answerFalse = (event) => {
-  //   this.setState({
-  //     isSelected: false
-  //   })
-  // }
-  //
-  // handleClickTrue = (event) => {
-  //   if (this.answerTrue === this.props.answer) {
-  //     return <button style={this.props.answer ? {backgroundColor: "#39ff14"} : {backgroundColor:"red"}} />
-  //   }
-  // }
-  // handleClickFalse = (event) => {
-  //   if (this.state.isSelected === this.props.answer) {
-  //
-  //   }
-  // }
+    if(findQuestion.answer.toString() === event.target.value){
+      event.target.style.backgroundColor='green'
+      this.props.updateScore()
+    } else {
+      event.target.style.backgroundColor='red'
+    }
+
+    // SELECT ONLY ONE ANSWER
+    if (event.target.previousElementSibling.type === "submit") {
+      event.target.previousElementSibling.disabled = true
+    } else if (event.target.nextElementSibling.type === "submit") {
+      event.target.nextElementSibling.disabled = true
+    }
+    this.props.questionCounter()
+    event.target.disabled = true
+  }
+
+  shuffled = this.props.questionsList.sort(() => 0.5 - Math.random()).slice(0, 5)
+
+  questionList = this.shuffled.map(question => {
+    return <li className="question"
+      key={question.id}
+    >
+      <p>{question.text}</p>
+      <button
+        id={question.text}
+        value={true}
+        onClick={this.handleClickTrue}
+      >
+        True
+      </button>
+      <button
+      id={question.text}
+      value={false}
+      onClick={this.handleClickTrue}
+      >
+      False</button>
+
+    </li>
+  })
+
   render() {
-    // style={this.props.answer ? {backgroundColor: "#39ff14"} : {backgroundColor:"red"}}
+    // console.log('Questions Props',this.props)
 
-    //<button style={this.props.answer ? {backgroundColor: "#39ff14"} : {backgroundColor:"red"}} />
-    console.log(this.props)
-    return (
+    return(
       <div className="question">
-        <p>{this.props.text}</p>
-        <button
-          onClick={this.handleClickTrue}>True</button>
-        <button>False</button>
+        {this.questionList}
       </div>
     )
   }
 }
-// style={this.props.selected === this.props.answer ? {backgroundColor: "#39ff14"} : {backgroundColor:"red"}}
+
 export default Question;

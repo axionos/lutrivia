@@ -2,7 +2,7 @@ export default {
 
   "gameInfo" :  {
       "name" : "lutrivia",
-      "score" : 1
+      
   },
   "questions" : [
     {

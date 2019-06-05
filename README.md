@@ -1,3 +1,11 @@
+Here are your deliverables:
+
+<!-- 1) Render the app title and a new game button.
+2) When the new game button gets clicked, it should disappear and 5 questions should appear along with the score.
+3) True or False should highlight based on whether or not the user selected the correct response. (As a stretch goal, try change the score as they answer questions) - questions should NOT be answerable more than once. -->
+4) When all 5 questions are answered, the new game button should reappear to populate 5 new questions.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

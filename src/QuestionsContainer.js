@@ -10,27 +10,22 @@ class QuestionsContainer extends React.Component {
   }
 
   render() {
+    // console.log('questionscontainer props',this.props)
+
     // 3. remove questions depending on inProgress(state of the parent)
     if (this.props.inProgress === false) {
       return null
     }
 
-    // render 5 random questions
-    const shuffled = this.props.questionsList.sort(() => 0.5 - Math.random())
-    let selected = shuffled.slice(0, 5)
-    const questionsLis = selected.map(function(question) {
-      return <Question
-        key={question.id}
-        text={question.text}
-        answer={question.answer}
-        isSelected={this.state.isSelected}
-         />
-    })
 
     return (
       <div className="questions_container">
         <ul>
-          {questionsLis}
+          <Question
+          questionsList={this.props.questionsList}
+          updateScore={this.props.updateScore}
+          questionCounter={this.props.questionCounter}
+          />
         </ul>
       </div>
     )
